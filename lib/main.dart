@@ -63,22 +63,19 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
     );
     _logoScale = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-          parent: _logoController, curve: Curves.elasticOut),
+      CurvedAnimation(parent: _logoController, curve: Curves.elasticOut),
     );
     _logoOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
-          parent: _logoController,
-          curve: const Interval(0.0, 0.5)),
+          parent: _logoController, curve: const Interval(0.0, 0.5)),
     );
     _textOpacity = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-          parent: _textController, curve: Curves.easeIn),
+      CurvedAnimation(parent: _textController, curve: Curves.easeIn),
     );
     _textSlide =
         Tween<Offset>(begin: const Offset(0, 0.5), end: Offset.zero)
-            .animate(CurvedAnimation(
-                parent: _textController, curve: Curves.easeOut));
+            .animate(
+                CurvedAnimation(parent: _textController, curve: Curves.easeOut));
     _progressValue = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
           parent: _progressController, curve: Curves.easeInOut),
@@ -97,8 +94,7 @@ class _SplashScreenState extends State<SplashScreen>
     if (mounted) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(
-            builder: (_) => const OnboardingScreen()),
+        MaterialPageRoute(builder: (_) => const OnboardingScreen()),
       );
     }
   }
@@ -117,11 +113,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFFF97316),
-              Color(0xFFEA580C),
-              Color(0xFFC2410C),
-            ],
+            colors: [Color(0xFFF97316), Color(0xFFEA580C), Color(0xFFC2410C)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -148,19 +140,15 @@ class _SplashScreenState extends State<SplashScreen>
                                 shape: BoxShape.circle,
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.black
-                                        .withOpacity(0.2),
+                                    color: Colors.black.withOpacity(0.2),
                                     blurRadius: 30,
                                     offset: const Offset(0, 10),
                                   ),
                                 ],
                               ),
                               child: const Center(
-                                child: Icon(
-                                  Icons.handshake,
-                                  color: Color(0xFFF97316),
-                                  size: 70,
-                                ),
+                                child: Icon(Icons.handshake,
+                                    color: Color(0xFFF97316), size: 70),
                               ),
                             ),
                           ),
@@ -212,18 +200,14 @@ class _SplashScreenState extends State<SplashScreen>
                             value: _progressValue.value,
                             backgroundColor: Colors.white24,
                             valueColor:
-                                const AlwaysStoppedAnimation<Color>(
-                                    Colors.white),
+                                const AlwaysStoppedAnimation<Color>(Colors.white),
                             minHeight: 4,
                           ),
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          'Made with ❤️ for Indian Labour',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.white38,
-                          ),
+                          'Made with love for Indian Labour',
+                          style: TextStyle(fontSize: 12, color: Colors.white38),
                         ),
                       ],
                     );
@@ -246,8 +230,7 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() =>
-      _OnboardingScreenState();
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
@@ -269,7 +252,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       'title': 'Find Work or Workers',
       'subtitle': 'Both sides. One app.',
       'description':
-          'Are you an owner looking for skilled workers? Or a worker looking for the next job? LabourLink serves both — simply and quickly.',
+          'Are you an owner looking for skilled workers? Or a worker looking for the next job? LabourLink serves both.',
       'color1': const Color(0xFF2563EB),
       'color2': const Color(0xFF1D4ED8),
     },
@@ -291,18 +274,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         children: [
           PageView.builder(
             controller: _controller,
-            onPageChanged: (index) =>
-                setState(() => currentPage = index),
+            onPageChanged: (index) => setState(() => currentPage = index),
             itemCount: slides.length,
             itemBuilder: (context, index) {
               final slide = slides[index];
               return Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      slide['color1'] as Color,
-                      slide['color2'] as Color,
-                    ],
+                    colors: [slide['color1'] as Color, slide['color2'] as Color],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -311,8 +290,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(28),
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           width: 120,
@@ -321,11 +299,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             color: Colors.white24,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(
-                            slide['icon'] as IconData,
-                            color: Colors.white,
-                            size: 64,
-                          ),
+                          child: Icon(slide['icon'] as IconData,
+                              color: Colors.white, size: 64),
                         ),
                         const SizedBox(height: 32),
                         Text(
@@ -340,20 +315,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         const SizedBox(height: 8),
                         Text(
                           slide['subtitle'] as String,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.white70,
-                          ),
+                          style: const TextStyle(fontSize: 16, color: Colors.white70),
                           textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 20),
                         Text(
                           slide['description'] as String,
                           style: const TextStyle(
-                            fontSize: 14,
-                            color: Colors.white70,
-                            height: 1.6,
-                          ),
+                              fontSize: 14, color: Colors.white70, height: 1.6),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -376,14 +345,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     children: List.generate(
                       slides.length,
                       (index) => Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 4),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
                         width: currentPage == index ? 24 : 8,
                         height: 8,
                         decoration: BoxDecoration(
-                          color: currentPage == index
-                              ? Colors.white
-                              : Colors.white38,
+                          color: currentPage == index ? Colors.white : Colors.white38,
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
@@ -397,16 +363,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onPressed: () {
                         if (currentPage < slides.length - 1) {
                           _controller.nextPage(
-                            duration: const Duration(
-                                milliseconds: 300),
+                            duration: const Duration(milliseconds: 300),
                             curve: Curves.easeInOut,
                           );
                         } else {
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    const LoginScreen()),
+                            MaterialPageRoute(builder: (_) => const LoginScreen()),
                           );
                         }
                       },
@@ -414,18 +377,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         backgroundColor: Colors.white,
                         foregroundColor: Colors.orange,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(14),
+                          borderRadius: BorderRadius.circular(14),
                         ),
                       ),
                       child: Text(
-                        currentPage < slides.length - 1
-                            ? 'Next'
-                            : 'Get Started — It\'s Free!',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        currentPage < slides.length - 1 ? 'Next' : 'Get Started',
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
@@ -462,76 +419,48 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.handshake,
-                color: Colors.white, size: 70),
+            const Icon(Icons.handshake, color: Colors.white, size: 70),
             const SizedBox(height: 12),
             const Text(
               'LabourLink',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
             ),
-            const Text(
-              'Connect. Work. Build.',
-              style: TextStyle(
-                  fontSize: 14, color: Colors.white70),
-            ),
+            const Text('Connect. Work. Build.',
+                style: TextStyle(fontSize: 14, color: Colors.white70)),
             const SizedBox(height: 40),
             Container(
-              margin: const EdgeInsets.symmetric(
-                  horizontal: 24),
+              margin: const EdgeInsets.symmetric(horizontal: 24),
               padding: const EdgeInsets.all(24),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Who are you?',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  const Text('Who are you?',
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 12),
                   Row(
                     children: [
                       Expanded(
                         child: GestureDetector(
-                          onTap: () => setState(
-                              () => selectedRole = 'owner'),
+                          onTap: () => setState(() => selectedRole = 'owner'),
                           child: Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: selectedRole == 'owner'
-                                  ? Colors.orange
-                                  : Colors.grey.shade100,
-                              borderRadius:
-                                  BorderRadius.circular(12),
+                              color: selectedRole == 'owner' ? Colors.orange : Colors.grey.shade100,
+                              borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(
                               children: [
                                 Icon(Icons.business,
-                                    color:
-                                        selectedRole == 'owner'
-                                            ? Colors.white
-                                            : Colors.grey),
+                                    color: selectedRole == 'owner' ? Colors.white : Colors.grey),
                                 const SizedBox(height: 4),
-                                Text(
-                                  'Owner',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        selectedRole == 'owner'
-                                            ? Colors.white
-                                            : Colors.grey,
-                                  ),
-                                ),
+                                Text('Owner',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: selectedRole == 'owner' ? Colors.white : Colors.grey)),
                               ],
                             ),
                           ),
@@ -540,35 +469,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: GestureDetector(
-                          onTap: () => setState(
-                              () => selectedRole = 'worker'),
+                          onTap: () => setState(() => selectedRole = 'worker'),
                           child: Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: selectedRole == 'worker'
-                                  ? Colors.orange
-                                  : Colors.grey.shade100,
-                              borderRadius:
-                                  BorderRadius.circular(12),
+                              color: selectedRole == 'worker' ? Colors.orange : Colors.grey.shade100,
+                              borderRadius: BorderRadius.circular(12),
                             ),
                             child: Column(
                               children: [
                                 Icon(Icons.construction,
-                                    color:
-                                        selectedRole == 'worker'
-                                            ? Colors.white
-                                            : Colors.grey),
+                                    color: selectedRole == 'worker' ? Colors.white : Colors.grey),
                                 const SizedBox(height: 4),
-                                Text(
-                                  'Worker',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        selectedRole == 'worker'
-                                            ? Colors.white
-                                            : Colors.grey,
-                                  ),
-                                ),
+                                Text('Worker',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: selectedRole == 'worker' ? Colors.white : Colors.grey)),
                               ],
                             ),
                           ),
@@ -577,13 +493,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Your phone number',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  const Text('Your phone number',
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   TextField(
                     keyboardType: TextInputType.phone,
@@ -593,8 +504,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       filled: true,
                       fillColor: Colors.grey.shade100,
                       border: OutlineInputBorder(
-                        borderRadius:
-                            BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12),
                         borderSide: BorderSide.none,
                       ),
                     ),
@@ -607,26 +517,16 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (_) =>
-                                  const OTPScreen()),
+                          MaterialPageRoute(builder: (_) => const OTPScreen()),
                         );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
                         foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(12),
-                        ),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
-                      child: const Text(
-                        'Send OTP',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: const Text('Send OTP',
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ],
@@ -653,8 +553,7 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   final List<TextEditingController> _controllers =
       List.generate(6, (_) => TextEditingController());
-  final List<FocusNode> _focusNodes =
-      List.generate(6, (_) => FocusNode());
+  final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   int _secondsRemaining = 30;
   bool _canResend = false;
 
@@ -683,17 +582,10 @@ class _OTPScreenState extends State<OTPScreen> {
         child: Column(
           children: [
             const SizedBox(height: 40),
-            const Icon(Icons.handshake,
-                color: Colors.white, size: 60),
+            const Icon(Icons.handshake, color: Colors.white, size: 60),
             const SizedBox(height: 12),
-            const Text(
-              'LabourLink',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+            const Text('LabourLink',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white)),
             const SizedBox(height: 40),
             Expanded(
               child: Container(
@@ -702,34 +594,20 @@ class _OTPScreenState extends State<OTPScreen> {
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(32),
-                    topRight: Radius.circular(32),
-                  ),
+                      topLeft: Radius.circular(32), topRight: Radius.circular(32)),
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.message,
-                        color: Colors.orange, size: 48),
+                    const Icon(Icons.message, color: Colors.orange, size: 48),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Verify your number',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    const Text('Verify your number',
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 8),
-                    const Text(
-                      '+91 98765 43210',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    const Text('+91 98765 43210',
+                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                     const SizedBox(height: 36),
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(6, (index) {
                         return SizedBox(
                           width: 44,
@@ -738,35 +616,25 @@ class _OTPScreenState extends State<OTPScreen> {
                             controller: _controllers[index],
                             focusNode: _focusNodes[index],
                             textAlign: TextAlign.center,
-                            keyboardType:
-                                TextInputType.number,
+                            keyboardType: TextInputType.number,
                             maxLength: 1,
-                            style: const TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                             decoration: InputDecoration(
                               counterText: '',
                               filled: true,
                               fillColor: Colors.grey.shade100,
                               border: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(12),
                                 borderSide: BorderSide.none,
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.circular(12),
-                                borderSide: const BorderSide(
-                                    color: Colors.orange,
-                                    width: 2),
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide: const BorderSide(color: Colors.orange, width: 2),
                               ),
                             ),
                             onChanged: (value) {
-                              if (value.isNotEmpty &&
-                                  index < 5) {
-                                _focusNodes[index + 1]
-                                    .requestFocus();
+                              if (value.isNotEmpty && index < 5) {
+                                _focusNodes[index + 1].requestFocus();
                               }
                             },
                           ),
@@ -781,26 +649,16 @@ class _OTPScreenState extends State<OTPScreen> {
                         onPressed: () {
                           Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    const HomeScreen()),
+                            MaterialPageRoute(builder: (_) => const HomeScreen()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange,
                           foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(14),
-                          ),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                         ),
-                        child: const Text(
-                          'Verify OTP',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: const Text('Verify OTP',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -813,19 +671,11 @@ class _OTPScreenState extends State<OTPScreen> {
                               });
                               _startTimer();
                             },
-                            child: const Text(
-                              'Resend OTP',
-                              style: TextStyle(
-                                color: Colors.orange,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            child: const Text('Resend OTP',
+                                style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold)),
                           )
-                        : Text(
-                            'Resend OTP in $_secondsRemaining seconds',
-                            style: const TextStyle(
-                                color: Colors.black45),
-                          ),
+                        : Text('Resend OTP in $_secondsRemaining seconds',
+                            style: const TextStyle(color: Colors.black45)),
                   ],
                 ),
               ),
@@ -838,7 +688,7 @@ class _OTPScreenState extends State<OTPScreen> {
 }
 
 // ==========================================
-// HOME SCREEN — ROLE SELECTION
+// HOME SCREEN
 // ==========================================
 
 class HomeScreen extends StatelessWidget {
@@ -854,22 +704,12 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.handshake,
-                  color: Colors.white, size: 80),
+              const Icon(Icons.handshake, color: Colors.white, size: 80),
               const SizedBox(height: 16),
-              const Text(
-                'LabourLink',
-                style: TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              const Text(
-                'Connect. Work. Build.',
-                style: TextStyle(
-                    fontSize: 16, color: Colors.white70),
-              ),
+              const Text('LabourLink',
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white)),
+              const Text('Connect. Work. Build.',
+                  style: TextStyle(fontSize: 16, color: Colors.white70)),
               const SizedBox(height: 60),
               SizedBox(
                 width: double.infinity,
@@ -878,26 +718,17 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (_) =>
-                              const OwnerHomeScreen()),
+                      MaterialPageRoute(builder: (_) => const OwnerHomeScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     foregroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                   ),
                   icon: const Icon(Icons.business),
-                  label: const Text(
-                    'I Need Workers',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  label: const Text('I Need Workers',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
               ),
               const SizedBox(height: 16),
@@ -908,9 +739,7 @@ class HomeScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (_) =>
-                              const WorkerHomeScreen()),
+                      MaterialPageRoute(builder: (_) => const WorkerHomeScreen()),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -918,18 +747,12 @@ class HomeScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
-                      side: const BorderSide(
-                          color: Colors.white, width: 2),
+                      side: const BorderSide(color: Colors.white, width: 2),
                     ),
                   ),
                   icon: const Icon(Icons.construction),
-                  label: const Text(
-                    'I Need Work',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  label: const Text('I Need Work',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ),
               ),
             ],
@@ -959,39 +782,24 @@ class OwnerHomeScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Colors.orange,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(24),
-                  bottomRight: Radius.circular(24),
-                ),
+                    bottomLeft: Radius.circular(24), bottomRight: Radius.circular(24)),
               ),
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Column(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'LabourLink',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
+                          Text('LabourLink',
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white)),
                           Row(
                             children: [
-                              Icon(Icons.location_on,
-                                  color: Colors.white70,
-                                  size: 14),
-                              Text(
-                                'Mumbai, MH',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.white70),
-                              ),
+                              Icon(Icons.location_on, color: Colors.white70, size: 14),
+                              Text('Mumbai, MH',
+                                  style: TextStyle(fontSize: 12, color: Colors.white70)),
                             ],
                           ),
                         ],
@@ -1000,15 +808,12 @@ class OwnerHomeScreen extends StatelessWidget {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    const NotificationScreen()),
+                            MaterialPageRoute(builder: (_) => const NotificationScreen()),
                           );
                         },
                         child: const CircleAvatar(
                           backgroundColor: Colors.white24,
-                          child: Icon(Icons.notifications,
-                              color: Colors.white),
+                          child: Icon(Icons.notifications, color: Colors.white),
                         ),
                       ),
                     ],
@@ -1018,29 +823,20 @@ class OwnerHomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (_) =>
-                                const SearchFilterScreen()),
+                        MaterialPageRoute(builder: (_) => const SearchFilterScreen()),
                       );
                     },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 14),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12),
                       ),
                       child: const Row(
                         children: [
-                          Icon(Icons.search,
-                              color: Colors.orange),
+                          Icon(Icons.search, color: Colors.orange),
                           SizedBox(width: 10),
-                          Text(
-                            'Search workers by trade...',
-                            style: TextStyle(
-                                color: Colors.black38),
-                          ),
+                          Text('Search workers by trade...', style: TextStyle(color: Colors.black38)),
                         ],
                       ),
                     ),
@@ -1052,57 +848,32 @@ class OwnerHomeScreen extends StatelessWidget {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(16),
                 child: Column(
-                  crossAxisAlignment:
-                      CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Browse by Trade',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                    ),
+                    const Text('Browse by Trade',
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black54)),
                     const SizedBox(height: 10),
                     SizedBox(
                       height: 80,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
-                          _tradeChip(Icons.foundation,
-                              'Masonry'),
-                          _tradeChip(Icons.carpenter,
-                              'Carpentry'),
-                          _tradeChip(
-                              Icons.electrical_services,
-                              'Electrical'),
-                          _tradeChip(
-                              Icons.plumbing, 'Plumbing'),
-                          _tradeChip(Icons.format_paint,
-                              'Painting'),
-                          _tradeChip(Icons.construction,
-                              'General'),
+                          _tradeChip(Icons.foundation, 'Masonry'),
+                          _tradeChip(Icons.carpenter, 'Carpentry'),
+                          _tradeChip(Icons.electrical_services, 'Electrical'),
+                          _tradeChip(Icons.plumbing, 'Plumbing'),
+                          _tradeChip(Icons.format_paint, 'Painting'),
+                          _tradeChip(Icons.construction, 'General'),
                         ],
                       ),
                     ),
                     const SizedBox(height: 16),
-                    const Text(
-                      'Available Team Leaders',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                    ),
+                    const Text('Available Team Leaders',
+                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black54)),
                     const SizedBox(height: 10),
-                    _leaderCard(context, 'Raju Sharma',
-                        'Mason & Clay work', '8 workers',
-                        '4.5'),
-                    _leaderCard(context, 'Mohan Kumar',
-                        'Carpentry', '5 workers', '4.8'),
-                    _leaderCard(context, 'Suresh Patil',
-                        'General Labour', '12 workers',
-                        '4.2'),
+                    _leaderCard(context, 'Raju Sharma', 'Mason & Clay work', '8 workers', '4.5'),
+                    _leaderCard(context, 'Mohan Kumar', 'Carpentry', '5 workers', '4.8'),
+                    _leaderCard(context, 'Suresh Patil', 'General Labour', '12 workers', '4.2'),
                   ],
                 ),
               ),
@@ -1116,30 +887,17 @@ class OwnerHomeScreen extends StatelessWidget {
         currentIndex: 0,
         onTap: (index) {
           if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => const JobPostingScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const JobPostingScreen()));
           }
           if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => const SettingsScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsScreen()));
           }
         },
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add_circle),
-              label: 'Post Job'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.add_circle), label: 'Post Job'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
@@ -1148,8 +906,7 @@ class OwnerHomeScreen extends StatelessWidget {
   Widget _tradeChip(IconData icon, String label) {
     return Container(
       margin: const EdgeInsets.only(right: 10),
-      padding: const EdgeInsets.symmetric(
-          horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -1160,84 +917,53 @@ class OwnerHomeScreen extends StatelessWidget {
         children: [
           Icon(icon, color: Colors.orange, size: 24),
           const SizedBox(height: 4),
-          Text(label,
-              style: const TextStyle(fontSize: 11)),
+          Text(label, style: const TextStyle(fontSize: 11)),
         ],
       ),
     );
   }
 
-  Widget _leaderCard(BuildContext context, String name,
-      String trade, String workers, String rating) {
+  Widget _leaderCard(BuildContext context, String name, String trade, String workers, String rating) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) => const WorkerProfileScreen()),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const WorkerProfileScreen()));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-        ),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16)),
         child: Row(
           children: [
             CircleAvatar(
               backgroundColor: Colors.orange.shade100,
-              child: Text(
-                name[0],
-                style: TextStyle(
-                    color: Colors.orange.shade800,
-                    fontWeight: FontWeight.bold),
-              ),
+              child: Text(name[0], style: TextStyle(color: Colors.orange.shade800, fontWeight: FontWeight.bold)),
             ),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
-                crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(name,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold)),
-                  Text('$trade · $workers',
-                      style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.black45)),
+                  Text(name, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text('$trade · $workers', style: const TextStyle(fontSize: 12, color: Colors.black45)),
                 ],
               ),
             ),
             Row(
               children: [
-                const Icon(Icons.star,
-                    color: Colors.orange, size: 14),
+                const Icon(Icons.star, color: Colors.orange, size: 14),
                 Text(rating),
                 const SizedBox(width: 8),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) =>
-                              const ChatScreen()),
-                    );
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const ChatScreen()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 6),
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(8),
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                   ),
-                  child: const Text('Call',
-                      style: TextStyle(fontSize: 12)),
+                  child: const Text('Call', style: TextStyle(fontSize: 12)),
                 ),
               ],
             ),
@@ -1267,68 +993,42 @@ class WorkerHomeScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Colors.orange,
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(24),
-                  bottomRight: Radius.circular(24),
-                ),
+                    bottomLeft: Radius.circular(24), bottomRight: Radius.circular(24)),
               ),
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Column(
-                        crossAxisAlignment:
-                            CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Hello, Raju 👷',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Text(
-                            'Available for work',
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.white70),
-                          ),
+                          Text('Hello, Raju',
+                              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
+                          Text('Available for work',
+                              style: TextStyle(fontSize: 12, color: Colors.white70)),
                         ],
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    const NotificationScreen()),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => const NotificationScreen()));
                         },
                         child: const CircleAvatar(
                           backgroundColor: Colors.white24,
-                          child: Icon(Icons.notifications,
-                              color: Colors.white),
+                          child: Icon(Icons.notifications, color: Colors.white),
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 16),
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius:
-                          BorderRadius.circular(12),
-                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
                     child: const TextField(
                       decoration: InputDecoration(
                         hintText: 'Search jobs near you...',
                         border: InputBorder.none,
-                        icon: Icon(Icons.search,
-                            color: Colors.orange),
+                        icon: Icon(Icons.search, color: Colors.orange),
                       ),
                     ),
                   ),
@@ -1339,34 +1039,12 @@ class WorkerHomeScreen extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
-                  const Text(
-                    'New Work Near You',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black54,
-                    ),
-                  ),
+                  const Text('New Work Near You',
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black54)),
                   const SizedBox(height: 10),
-                  _jobCard(context, 'Mason Workers Needed',
-                      '₹700/day', 'Andheri', '2.1 km',
-                      '5 workers', '3 months'),
-                  _jobCard(
-                      context,
-                      'Villa Construction Team',
-                      '₹850/day',
-                      'Thane',
-                      '5.4 km',
-                      '10 workers',
-                      '6 months'),
-                  _jobCard(
-                      context,
-                      'Carpenter – Office Fitout',
-                      '₹950/day',
-                      'BKC',
-                      '3.8 km',
-                      '3 workers',
-                      '45 days'),
+                  _jobCard(context, 'Mason Workers Needed', '₹700/day', 'Andheri', '2.1 km', '5 workers'),
+                  _jobCard(context, 'Villa Construction Team', '₹850/day', 'Thane', '5.4 km', '10 workers'),
+                  _jobCard(context, 'Carpenter Office Fitout', '₹950/day', 'BKC', '3.8 km', '3 workers'),
                 ],
               ),
             ),
@@ -1379,100 +1057,52 @@ class WorkerHomeScreen extends StatelessWidget {
         currentIndex: 0,
         onTap: (index) {
           if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => const WorkHistoryScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const WorkHistoryScreen()));
           }
           if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => const ChatScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const ChatScreen()));
           }
           if (index == 3) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (_) => const WorkerProfileScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (_) => const WorkerProfileScreen()));
           }
         },
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.work_outline),
-              label: 'My Jobs'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.message_outlined),
-              label: 'Messages'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.work_outline), label: 'My Jobs'),
+          BottomNavigationBarItem(icon: Icon(Icons.message_outlined), label: 'Messages'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );
   }
 
-  Widget _jobCard(
-      BuildContext context,
-      String title,
-      String pay,
-      String area,
-      String distance,
-      String workers,
-      String duration) {
+  Widget _jobCard(BuildContext context, String title, String pay, String area, String distance, String workers) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) => const JobDetailScreen()),
-        );
+        Navigator.push(context, MaterialPageRoute(builder: (_) => const JobDetailScreen()));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 12),
         padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-        ),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(title,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold)),
-                Text(pay,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green.shade700)),
+                Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+                Text(pay, style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green.shade700)),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                const Icon(Icons.location_on,
-                    size: 12, color: Colors.grey),
-                Text(' $area · $distance',
-                    style: const TextStyle(
-                        fontSize: 11,
-                        color: Colors.black45)),
+                const Icon(Icons.location_on, size: 12, color: Colors.grey),
+                Text(' $area · $distance', style: const TextStyle(fontSize: 11, color: Colors.black45)),
                 const SizedBox(width: 10),
-                const Icon(Icons.people,
-                    size: 12, color: Colors.grey),
-                Text(' $workers',
-                    style: const TextStyle(
-                        fontSize: 11,
-                        color: Colors.black45)),
+                const Icon(Icons.people, size: 12, color: Colors.grey),
+                Text(' $workers', style: const TextStyle(fontSize: 11, color: Colors.black45)),
               ],
             ),
             const SizedBox(height: 10),
@@ -1480,20 +1110,12 @@ class WorkerHomeScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) =>
-                            const JobDetailScreen()),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (_) => const JobDetailScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
                   foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(10),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                 ),
                 child: const Text('Apply Now'),
               ),
@@ -1507,101 +1129,75 @@ class WorkerHomeScreen extends StatelessWidget {
 
 // ==========================================
 // PLACEHOLDER SCREENS
-// All screens referenced above
 // ==========================================
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Notifications', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Notifications');
 }
 
 class SearchFilterScreen extends StatelessWidget {
   const SearchFilterScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Search & Filter', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Search & Filter');
 }
 
 class JobPostingScreen extends StatelessWidget {
   const JobPostingScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Post a Job', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Post a Job');
 }
 
 class WorkerProfileScreen extends StatelessWidget {
   const WorkerProfileScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Worker Profile', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Worker Profile');
 }
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Chat', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Chat');
 }
 
 class JobDetailScreen extends StatelessWidget {
   const JobDetailScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Job Detail', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Job Detail');
 }
 
 class WorkHistoryScreen extends StatelessWidget {
   const WorkHistoryScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Work History', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Work History');
 }
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
   @override
-  Widget build(BuildContext context) =>
-      _placeholder(context, 'Settings', Colors.orange);
+  Widget build(BuildContext context) => placeholderScreen(context, 'Settings');
 }
 
-Scaffold _placeholder(
-    BuildContext context, String title, Color color) {
+Widget placeholderScreen(BuildContext context, String title) {
   return Scaffold(
     appBar: AppBar(
-      backgroundColor: color,
-      title: Text(
-        title,
-        style: const TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold),
-      ),
+      backgroundColor: Colors.orange,
+      title: Text(title, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
       leading: GestureDetector(
         onTap: () => Navigator.pop(context),
-        child:
-            const Icon(Icons.arrow_back, color: Colors.white),
+        child: const Icon(Icons.arrow_back, color: Colors.white),
       ),
     ),
     body: Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.check_circle, color: color, size: 80),
+          const Icon(Icons.check_circle, color: Colors.orange, size: 80),
           const SizedBox(height: 16),
-          Text(
-            '$title Screen',
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          Text('$title Screen', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          const Text(
-            'This screen is connected!\nPaste full code here.',
-            style:
-                TextStyle(fontSize: 14, color: Colors.black45),
-            textAlign: TextAlign.center,
-          ),
+          const Text('This screen is connected!', style: TextStyle(fontSize: 14, color: Colors.black45)),
         ],
       ),
     ),

@@ -3,7 +3,7 @@
 
 #include <gtk/gtk.h>
 
-G_DECLARE_FINAL_TYPE(MyApplication,
+G_DECLARE_FINAL_TYPE(LabourLinkApplication,
                      my_application,
                      MY,
                      APPLICATION,
@@ -14,8 +14,8 @@ G_DECLARE_FINAL_TYPE(MyApplication,
  *
  * Creates a new Flutter-based application.
  *
- * Returns: a new #MyApplication.
+ * Returns: a new #LabourLinkApplication.
  */
-MyApplication* my_application_new();
+LabourLinkApplication* my_application_new();
 
 #endif  // FLUTTER_MY_APPLICATION_H_
